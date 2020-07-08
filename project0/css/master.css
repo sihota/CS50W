@@ -1,0 +1,94 @@
+/* template variables define for look */
+/* nested css style */
+div.main div.container div.row div.col nav.bg-dark {
+  background-color: #343a40 !important; }
+
+/* inheritence css*/
+.badgered, .badgegreen, .badgeblue {
+  display: inline-block;
+  padding: .25em .4em;
+  font-size: 70%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25rem; }
+
+.badgered {
+  background-color: red;
+  color: #FFF; }
+
+.badgegreen {
+  background-color: green;
+  color: #FFF; }
+
+.badgeblue {
+  background-color: blue;
+  color: #FFF; }
+
+/* css selectors and properties */
+a.btn-dark, button.btn-dark {
+  background-color: #343a40 !important; }
+
+a.btn-dark:hover, button.btn-dark:hover {
+  opacity: 0.75; }
+
+ul, h5 {
+  text-align: justify; }
+
+ul li {
+  list-style-position: inside;
+  text-align: justify; }
+
+form.needs-validation {
+  padding: 0 50px; }
+
+.main {
+  position: absolute;
+  top: 5%;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%; }
+
+.main > div.container {
+  background-color: transparent;
+  padding: 10%; }
+
+.main > div.container .row {
+  background-color: transparent; }
+
+.main > div.container div.row > div.col {
+  background-color: transparent;
+  border: 5px solid #343a40;
+  padding-bottom: 50px; }
+
+h1.welcome, h1.about, h1.contact, h1.interests {
+  text-align: center;
+  width: 100%;
+  margin: 50px 0; }
+
+.download {
+  margin-top: 50px; }
+
+table#aboutinfo {
+  border: 1px solid #343a40;
+  border-collapse: collapse; }
+
+input[type=text]:focus, select:focus {
+  background-color: #343a40;
+  color: #FFF; }
+
+th, td {
+  border: 1px solid #343a40;
+  padding: 5px; }
+
+/* media queries */
+@media (min-width: 991px) {
+  h1.welcome::after {
+    content: ",to my page!"; } }
+@media (max-width: 990px) {
+  h1.welcome::after {
+    content: "!"; } }
+
+/*# sourceMappingURL=master.css.map */

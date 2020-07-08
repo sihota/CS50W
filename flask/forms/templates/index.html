@@ -1,0 +1,16 @@
+{% extends "masterlayout.html "%}
+
+{% block title %}
+  Home Page
+{% endblock %}
+
+{% block heading %}
+  Home Page
+{% endblock %}
+
+{% block body %}
+  <form name="frm" method="post" action="{{ url_for('hello') }}">
+    <input type="text" name="name" value="" placeholder="Enter your name"/>
+    <button type="submit" name="button">submit</button>
+  </form>
+{% endblock %}

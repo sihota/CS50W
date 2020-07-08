@@ -1,0 +1,22 @@
+{% extends "masterlayout.html "%}
+
+{% block title %}
+  Home Page
+{% endblock %}
+
+{% block heading %}
+  Home Page
+{% endblock %}
+
+{% block body %}
+  <ul>
+    {% for note in notes %}
+      <li>{{ note }}</li>
+    {% endfor %}
+  </ul>
+
+  <form name="frm" method="post" action="{{ url_for('index') }}">
+    <input type="text" name="note" value="" placeholder="Enter note here..."/>
+    <button type="submit" name="button">submit</button>
+  </form>
+{% endblock %}
