@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block title %}
+  Welcome to Project1
+{% endblock %}
+{% block style %}
+<style type="text/css">
+ body{
+   text-align:center;
+   align-items: center;
+ }
+ nav{
+   text-align:left;
+ }
+</style>
+{% endblock %}
+{% block body %}
+  {% if session["username"] %}
+    <h1>Welcome, {{session["username"]}} {{session["user_id"] | string() }} to Project1</h1>
+  {% else %}
+    <h1>Welcome, Guest to Project1: Books</h1>
+    <p>Start searching books after <a href="{{url_for("login")}}">login</a> or <a href="{{url_for("register")}}">registration.</a> 
+  {% endif %}
+{% endblock %}

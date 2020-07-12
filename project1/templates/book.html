@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+{% block title %}
+  {{book.title}}
+{% endblock %}
+{% block body %}
+
+<div class="table-responsive">
+    <h1>Book Details:</h1>
+  <ul>
+     <li><b>ISBN:</b> {{book.isbn}}</li>
+     <li><b>Title:</b> {{book.title}}</li>
+     <li><b>Author:</b> {{book.author}}</li>
+     <li><b>Year:</b> {{book.year}}</li>
+     <li><b>Average Rating:</b> {{json_book.average_rating}}
+     <li><b>Work Ratings Count:</b> {{json_book.work_ratings_count}}
+  </ul>
+</div>
+
+
+{% if show_review_form %}
+<hr/>
+
+<form class="form-rating" action="{{ url_for('book',book_id = book.id) }}" method="POST">
+     <div class="text-center mb-4">
+      <!-- <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">-->
+       <h1 class="h3 mb-3 font-weight-normal text-left">Review a Book</h1>
+       {% if error_message %}
+          <div class="alert alert-dark" role="alert">
+              {{error_message}}
+          </div>
+        {% endif %}
+     </div>
+
+     <div class="form-check form-check-inline">
+           <label class="form-check-label" for="inlineMyRating">My rating:&nbsp;</label>
+           <input type="number" name="rating" id="rating-inline" class="rating" data-clearableicon="no" data-clearable="clear" value="" data-inline/>
+    </div>
+
+    <div class="form-group">
+      <label for="review">What did you think ?</label>
+        <textarea class="form-control" id="review" name="review" placeholder="Enter your review (optional)" rows="10"></textarea>
+      </div>
+
+
+     <button class="btn btn-dark" type="submit">Leave a Review</button>
+
+   </form>
+
+{% endif %}
+
+
+
+
+
+
+{% if reviews %}
+<hr/>
+
+<div class="container">
+  <h4>User Reviews</h4>
+  {% for review in reviews %}
+    <div class="row">
+        <div class="col">
+          <div>
+           <b>{{review.username}}</b> rated it <input type="number" name="rating" id="rating-inline" class="rating" data-clearableicon="no" data-readonly value="{{review.rating}}" data-inline/>
+          </div>
+          <div>
+            {{review.review}}
+          </div>
+        </div>
+    </div>
+    <br/>
+  {% endfor %}
+
+</div>
+
+{% endif %}
+
+{% endblock %}
+
+{% block javascript %}
+
+    <script type="text/javascript">
+
+      $(function(){
+           $('input.rating').on('change', function(){
+             //alert("Changed: " + $(this).val())
+           });
+         });
+
+    </script>
+
+{% endblock %}

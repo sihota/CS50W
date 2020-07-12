@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% block title %}
+  {{message}}
+{% endblock %}
+{% block body %}
+  <h1>{{message}}</h1>
+  <p>Please, use <a href="{{ url_for('login')}}">log in</a> to search books</p>
+{% endblock %}

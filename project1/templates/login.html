@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block title %}
+  {{message}}
+{% endblock %}
+{% block style %}
+<style type="text/css">
+ body{
+  align-items: center;
+ }
+</style>
+{% endblock %}
+
+{% block body %}
+
+<form class="form-login" action="{{ url_for('login') }}" method="POST">
+     <div class="text-center mb-4">
+      <!-- <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">-->
+       <h1 class="h3 mb-3 font-weight-normal">Please log in</h1>
+       {% if error_message %}
+          <div class="alert alert-dark" role="alert">
+              {{error_message}}
+          </div>
+        {% endif %}
+     </div>
+
+     <div class="form-label-group">
+           <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username" required autofocus>
+           <label for="inputUsername">Username</label>
+    </div>
+
+     <div class="form-label-group">
+       <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+       <label for="inputPassword">Password</label>
+     </div>
+
+     <div class="checkbox mb-3">
+       <label>
+         <input type="checkbox" value="remember-me"> Remember me
+       </label>
+     </div>
+     <button class="btn btn-lg btn-dark btn-block" type="submit">Log in</button>
+     <p class="mt-5 mb-3 text-muted text-center">&copy; 2020</p>
+   </form>
+{% endblock %}
